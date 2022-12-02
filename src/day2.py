@@ -1,4 +1,5 @@
 from utils import read_lines_into_list
+from utils import read_lines_into_list_of_lists
 
 
 class Day2:
@@ -10,22 +11,21 @@ class Day2:
         test_input_path = '../inputs/day2/input_test.txt'
         final_input_path = '../inputs/day2/input.txt'
         for input_path in [test_input_path, final_input_path]:
-            total_score_1 = self.get_solution_1(input_path=input_path)
-            total_score_2 = self.get_solution_2(input_path=input_path)
+            print(f"\nInput from: {input_path}")
+            matches = read_lines_into_list_of_lists(input_path)
+            total_score_1 = self.get_solution_1(matches=matches)
+            total_score_2 = self.get_solution_2(matches=matches)
             print(f"Solution 1: Total score using the strategy: {total_score_1}")
             print(f"Solution 2: Total score using the new strategy: {total_score_2}")
 
-    def get_solution_1(self, input_path):
-        score_per_match = self.get_scores_per_match(input_path)
+    def get_solution_1(self, matches):
+        score_per_match = self.get_scores_per_match(matches)
         total_score = sum(score_per_match)
         return total_score
 
-    def get_solution_2(self, input_path):
-        matches = read_lines_into_list(input_path)
-
+    def get_solution_2(self, matches):
         scores_per_match = []
         for match_list in matches:
-            match_list = match_list.split(" ")
             opponent_play = ord(match_list[0].lower()) - 96
             needed_win_score = (ord(match_list[1].lower()) - 96 - 24)*3
             for my_play in [1, 2, 3]:
@@ -35,14 +35,11 @@ class Day2:
         total_score = sum(scores_per_match)
         return total_score
 
-    def get_scores_per_match(self, input_path):
-        print(f"\nInput from: {input_path}")
-        matches = read_lines_into_list(input_path)
+    def get_scores_per_match(self, matches):
         score_per_match = [self.get_score(match) for match in matches]
         return score_per_match
 
-    def get_score(self, match):
-        match_list = match.split(" ")
+    def get_score(self, match_list):
         opponent_play = ord(match_list[0].lower()) - 96
         my_play = ord(match_list[1].lower()) - 96 - 23
         win_score = self.get_win_score(
