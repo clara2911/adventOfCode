@@ -35,4 +35,3 @@ class Day1:
 
 if __name__ == '__main__':
     Day1.main()
-
