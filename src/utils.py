@@ -12,7 +12,7 @@ def read_lines_into_list_of_lists(file_path, sep=" "):
         return list_of_lists
 
 
-def read_lines_of_strings_into_list_of_lists(file_path):
+def read_lines_of_strings_into_list_of_chars(file_path):
     with open(file_path) as f:
         list_of_lines = f.read().splitlines()
         list_of_lists = [[*line] for line in list_of_lines]
