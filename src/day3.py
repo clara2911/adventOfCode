@@ -1,4 +1,3 @@
-from utils import read_lines_into_list
 from utils import read_lines_of_strings_into_list_of_chars
 
 

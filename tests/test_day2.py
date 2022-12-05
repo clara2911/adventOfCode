@@ -10,7 +10,7 @@ class TestDay2:
         day2_obj = Day2()
         input_path = '../inputs/day2/input_test.txt'
         print(f"\nInput from: {input_path}")
-        matches = read_lines_into_list_of_lists(file=input_path)
+        matches = read_lines_into_list_of_lists(file_path=input_path)
         total_score_1 = day2_obj.get_solution_1(
             matches=matches
         )
@@ -37,7 +37,7 @@ class TestDay2:
         day2_obj = Day2()
         input_path = '../inputs/day2/input_test2.txt'
         print(f"\nInput from: {input_path}")
-        matches = read_lines_into_list_of_lists(file=input_path)
+        matches = read_lines_into_list_of_lists(file_path=input_path)
         scores_per_match = day2_obj.get_scores_per_match(
             matches=matches
         )
