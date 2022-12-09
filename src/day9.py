@@ -1,5 +1,3 @@
-from utils import read_lines_into_list_of_lists
-
 
 class Day9:
 
@@ -17,7 +15,8 @@ class Day9:
             print(f"Solution 1: {num_visited_positions1}")
             print(f"Solution 2: {num_visited_positions2}")
 
-    def parse_input(self, file_path, sep=" "):
+    @staticmethod
+    def parse_input(file_path, sep=" "):
         with open(file_path) as f:
             list_of_lines = f.read().splitlines()
             head_movement = [line.split(sep) for line in list_of_lines]
@@ -36,7 +35,7 @@ class Day9:
             num_iterations = int(move[1])
             for i in range(num_iterations):
                 head_pos.move(direction=direction)
-                if self.gotta_follow(head_pos=head_pos, tail_pos=tail_pos):
+                if tail_pos.gotta_follow(pos_to_follow=head_pos):
                     self.follow(head_pos=head_pos, tail_pos=tail_pos)
         num_positions_in_history = self.get_num_positions_in_history(tail_pos)
         return num_positions_in_history
@@ -57,53 +56,42 @@ class Day9:
 
                 pos_to_follow = head_pos
                 for following_pos in following_positions:
-                    if self.gotta_follow(head_pos=pos_to_follow, tail_pos=following_pos):
+                    if following_pos.gotta_follow(pos_to_follow=pos_to_follow):
                         self.follow(head_pos=pos_to_follow, tail_pos=following_pos)
                     pos_to_follow = following_pos
 
         num_positions_in_history = self.get_num_positions_in_history(following_positions[-1])
         return num_positions_in_history
 
-    def gotta_follow(self, head_pos, tail_pos):
-        reason1 = abs(head_pos.position[0] - tail_pos.position[0]) > 1
-        reason2 = abs(head_pos.position[1] - tail_pos.position[1]) > 1
-        return reason1 or reason2
-
-    def follow(self, head_pos, tail_pos):
-        if self.same_row(head_pos, tail_pos):
+    @staticmethod
+    def follow(head_pos, tail_pos):
+        if tail_pos.same_row(head_pos):
             if tail_pos.position[1] - head_pos.position[1] > 1:
                 tail_pos.move('L')
             elif tail_pos.position[1] - head_pos.position[1] < -1:
                 tail_pos.move('R')
-        elif self.same_column(head_pos, tail_pos):
+        elif tail_pos.same_column(head_pos):
             if tail_pos.position[0] - head_pos.position[0] > 1:
                 tail_pos.move('U')
             elif tail_pos.position[0] - head_pos.position[0] < -1:
                 tail_pos.move('D')
         else:  # follow diagonally
-            # first part of the move
             if tail_pos.position[0] - head_pos.position[0] > 0:
                 tail_pos.move('U', add_to_position_history=False)
             else:
                 tail_pos.move('D', add_to_position_history=False)
-            # second part of the move
             if tail_pos.position[1] - head_pos.position[1] > 0:
                 tail_pos.move('L')
             else:
                 tail_pos.move('R')
 
-    def same_row(self, pos1, pos2):
-        return pos2.position[0] == pos1.position[0]
-
-    def same_column(self, pos1, pos2):
-        return pos2.position[1] == pos1.position[1]
-
-    def get_num_positions_in_history(self, pos):
-        pos_history = []
-        for elem in pos.position_history:
-            if elem not in pos_history:
-                pos_history.append(elem)
-        return len(pos_history)
+    @staticmethod
+    def get_num_positions_in_history(pos):
+        distinct_positions = []
+        distinct_positions = [
+            distinct_positions.append(pos) for pos in pos.position_history if pos not in distinct_positions
+        ]
+        return len(distinct_positions)
 
 
 class Position:
@@ -120,11 +108,21 @@ class Position:
             self.position[1] -= 1
         elif direction == 'R':
             self.position[1] += 1
-
         else:
             raise ValueError(f'direction {direction} is not a valid input')
         if add_to_position_history:
             self.position_history.append(self.position.copy())
+
+    def gotta_follow(self, pos_to_follow):
+        reason1 = abs(pos_to_follow.position[0] - self.position[0]) > 1
+        reason2 = abs(pos_to_follow.position[1] - self.position[1]) > 1
+        return reason1 or reason2
+
+    def same_row(self, other_pos):
+        return self.position[0] == other_pos.position[0]
+
+    def same_column(self, other_pos):
+        return self.position[1] == other_pos.position[1]
 
 
 if __name__ == '__main__':
