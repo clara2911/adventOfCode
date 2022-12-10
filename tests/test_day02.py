@@ -1,4 +1,4 @@
-from day2 import Day2
+from day02 import Day2
 from utils import read_lines_into_list_of_lists
 
 
@@ -8,7 +8,7 @@ class TestDay2:
 
     def test_that_test_input_returns_what_is_given_in_description(self):
         day2_obj = Day2()
-        input_path = '../inputs/day2/input_test.txt'
+        input_path = '../inputs/day02/input_test.txt'
         print(f"\nInput from: {input_path}")
         matches = read_lines_into_list_of_lists(file_path=input_path)
         total_score_1 = day2_obj.get_solution_1(
@@ -35,7 +35,7 @@ class TestDay2:
         C Z scissors vs scissors 3 + 3 = 6
         """
         day2_obj = Day2()
-        input_path = '../inputs/day2/input_test2.txt'
+        input_path = '../inputs/day02/input_test2.txt'
         print(f"\nInput from: {input_path}")
         matches = read_lines_into_list_of_lists(file_path=input_path)
         scores_per_match = day2_obj.get_scores_per_match(

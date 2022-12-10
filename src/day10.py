@@ -32,7 +32,6 @@ class Day10:
         return instructions
 
     def part1(self, instructions):
-        """ """
         for instruction in instructions:
             if instruction[0] == 'addx':
                 self.do_addx(int(instruction[1]))
@@ -41,12 +40,6 @@ class Day10:
         return sum([(key+1)*value for key, value in self.cpu.signal_strengths.items()])
 
     def part2(self, instructions):
-        """
-        follow the instructions
-        if the sprite at any moment in time is in the same place as the cursor of the crt
-        then we draw a # otherwise the crt just draws a .
-
-        """
         for instruction in instructions:
             if instruction[0] == 'addx':
                 self.do_addx(int(instruction[1]))
@@ -57,23 +50,20 @@ class Day10:
         return "See print in terminal"
 
     def do_noop(self):
-        self.cpu.check_signal_strenghts(cycle_count=self.cycle_count)
+        self.cpu.check_signal_strengths(cycle_count=self.cycle_count)
         self.make_cycle()
-        self.cpu.check_signal_strenghts(cycle_count=self.cycle_count)
-        self.cpu.noop()
-        self.cpu.check_signal_strenghts(cycle_count=self.cycle_count)
+        self.cpu.check_signal_strengths(cycle_count=self.cycle_count)
 
     def do_addx(self, number_to_add: int):
-        self.cpu.check_signal_strenghts(cycle_count=self.cycle_count)
+        self.cpu.check_signal_strengths(cycle_count=self.cycle_count)
         self.make_cycle()
-        self.cpu.check_signal_strenghts(cycle_count=self.cycle_count)
+        self.cpu.check_signal_strengths(cycle_count=self.cycle_count)
         self.make_cycle()
-        self.cpu.check_signal_strenghts(cycle_count=self.cycle_count)
+        self.cpu.check_signal_strengths(cycle_count=self.cycle_count)
         self.cpu.addx(v=number_to_add)
-        self.cpu.check_signal_strenghts(cycle_count=self.cycle_count)
+        self.cpu.check_signal_strengths(cycle_count=self.cycle_count)
 
     def make_cycle(self):
-
         if self.overlap(self.cycle_count % 40, self.cpu.register):
             self.crt.draw_pixel(dark=True)
         else:

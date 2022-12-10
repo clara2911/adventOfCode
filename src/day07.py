@@ -5,8 +5,8 @@ from typing import Dict
 class Day7:
 
     def __init__(self):
-        test_input_path = '../inputs/day7/input_test.txt'
-        final_input_path = '../inputs/day7/input.txt'
+        test_input_path = '../inputs/day07/input_test.txt'
+        final_input_path = '../inputs/day07/input.txt'
         self.all_input_paths = [test_input_path, final_input_path]
 
     def main(self):

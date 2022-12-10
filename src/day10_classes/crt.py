@@ -1,10 +1,7 @@
-
-
 LINE_WIDTH = 40
 
 
 class CRT:
-
     def __init__(self):
         self.current_line = '\n'
 
@@ -22,4 +19,3 @@ class CRT:
 
     def reset_current_line(self):
         self.current_line = '\n'
-

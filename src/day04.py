@@ -7,8 +7,8 @@ class Day4:
         pass
 
     def main(self):
-        test_input_path = '../inputs/day4/input_test.txt'
-        final_input_path = '../inputs/day4/input.txt'
+        test_input_path = '../inputs/day04/input_test.txt'
+        final_input_path = '../inputs/day04/input.txt'
         for input_path in [test_input_path, final_input_path]:
             print(f"\nInput from: {input_path}")
             lines = read_lines_into_list_of_lists(file_path=input_path, sep=',')

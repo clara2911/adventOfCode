@@ -4,8 +4,8 @@ from utils import read_lines_into_list
 class Day6:
 
     def __init__(self):
-        test_input_path = '../inputs/day6/input_test.txt'
-        final_input_path = '../inputs/day6/input.txt'
+        test_input_path = '../inputs/day06/input_test.txt'
+        final_input_path = '../inputs/day06/input.txt'
         self.all_input_paths = [test_input_path, final_input_path]
 
     def main(self):

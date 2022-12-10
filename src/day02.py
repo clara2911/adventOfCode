@@ -7,8 +7,8 @@ class Day2:
         pass
 
     def main(self):
-        test_input_path = '../inputs/day2/input_test.txt'
-        final_input_path = '../inputs/day2/input.txt'
+        test_input_path = '../inputs/day02/input_test.txt'
+        final_input_path = '../inputs/day02/input.txt'
         for input_path in [test_input_path, final_input_path]:
             print(f"\nInput from: {input_path}")
             matches = read_lines_into_list_of_lists(input_path)

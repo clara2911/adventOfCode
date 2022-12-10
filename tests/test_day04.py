@@ -1,13 +1,13 @@
-from day4 import Day4
+from day04 import Day4
 from utils import read_lines_into_list_of_lists
 
 
 class TestDay4:
     def setup_method(self):
         self.day4_obj = Day4()
-        self.input_path = '../inputs/day4/input_test.txt'
-        self.input_path2 = '../inputs/day4/input_test2.txt'
-        self.input_path_full = '../inputs/day4/input.txt'
+        self.input_path = '../inputs/day04/input_test.txt'
+        self.input_path2 = '../inputs/day04/input_test2.txt'
+        self.input_path_full = '../inputs/day04/input.txt'
 
     def test_that_test_input_returns_what_is_given_in_description_part_1(self):
         lines = read_lines_into_list_of_lists(file_path=self.input_path, sep=',')

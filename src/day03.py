@@ -7,8 +7,8 @@ class Day3:
         pass
 
     def main(self):
-        test_input_path = '../inputs/day3/input_test.txt'
-        final_input_path = '../inputs/day3/input.txt'
+        test_input_path = '../inputs/day03/input_test.txt'
+        final_input_path = '../inputs/day03/input.txt'
         for input_path in [test_input_path, final_input_path]:
             print(f"\nInput from: {input_path}")
             bag_contents = read_lines_of_strings_into_list_of_chars(input_path)

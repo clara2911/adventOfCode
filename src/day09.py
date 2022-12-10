@@ -2,8 +2,8 @@
 class Day9:
 
     def __init__(self):
-        test_input_path = '../inputs/day9/input_test.txt'
-        final_input_path = '../inputs/day9/input.txt'
+        test_input_path = '../inputs/day09/input_test.txt'
+        final_input_path = '../inputs/day09/input.txt'
         self.all_input_paths = [test_input_path, final_input_path]
 
     def main(self):

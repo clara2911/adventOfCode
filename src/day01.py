@@ -5,8 +5,8 @@ class Day1:
 
     @staticmethod
     def main():
-        test_input_path = '../inputs/day1/input_test.txt'
-        final_input_path = '../inputs/day1/input.txt'
+        test_input_path = '../inputs/day01/input_test.txt'
+        final_input_path = '../inputs/day01/input.txt'
         for input_path in [test_input_path, final_input_path]:
             solution1, solution2 = Day1.get_solution(input_path=input_path)
             print(f"Solution 1: Max calories carried by one single elf: {solution1}")
