@@ -1,0 +1,54 @@
+monkey 0
+monkey 0 has 4 items
+Monkey inspects an item with a worry level of 60
+Worry level after operation is now 1140
+Test divisible by 23 is false, throwing 1140 to 3
+Monkey inspects an item with a worry level of 71
+Worry level after operation is now 1349
+Test divisible by 23 is false, throwing 1349 to 3
+Monkey inspects an item with a worry level of 81
+Worry level after operation is now 1539
+Test divisible by 23 is false, throwing 1539 to 3
+Monkey inspects an item with a worry level of 80
+Worry level after operation is now 1520
+Test divisible by 23 is false, throwing 1520 to 3
+monkey 1
+monkey 1 has 6 items
+Monkey inspects an item with a worry level of 77
+Worry level after operation is now 83
+Test divisible by 19 is false, throwing 83 to 0
+Monkey inspects an item with a worry level of 1504
+Worry level after operation is now 1510
+Test divisible by 19 is false, throwing 1510 to 0
+Monkey inspects an item with a worry level of 1865
+Worry level after operation is now 1871
+Test divisible by 19 is false, throwing 1871 to 0
+Monkey inspects an item with a worry level of 6244
+Worry level after operation is now 6250
+Test divisible by 19 is false, throwing 6250 to 0
+Monkey inspects an item with a worry level of 3603
+Worry level after operation is now 3609
+Test divisible by 19 is false, throwing 3609 to 0
+Monkey inspects an item with a worry level of 9412
+Worry level after operation is now 9418
+Test divisible by 19 is false, throwing 9418 to 0
+monkey 2
+monkey 2 has 0 items
+monkey 3
+monkey 3 has 4 items
+Monkey inspects an item with a worry level of 1140
+Worry level after operation is now 1143
+Test divisible by 17 is false, throwing 1143 to 1
+Monkey inspects an item with a worry level of 1349
+Worry level after operation is now 1352
+Test divisible by 17 is false, throwing 1352 to 1
+Monkey inspects an item with a worry level of 1539
+Worry level after operation is now 1542
+Test divisible by 17 is false, throwing 1542 to 1
+Monkey inspects an item with a worry level of 1520
+Worry level after operation is now 1523
+Test divisible by 17 is false, throwing 1523 to 1
+Round 2, monkey 0 has inspection count 6
+Round 2, monkey 1 has inspection count 10
+Round 2, monkey 2 has inspection count 3
+Round 2, monkey 3 has inspection count 10
