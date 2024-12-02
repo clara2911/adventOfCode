@@ -20,10 +20,7 @@ def read_input(input_path: Path) -> list[np.ndarray]:
 
 
 def safety_count(research_data: list[np.ndarray]) -> int:
-	safety_count = 0
-	for levels_line in research_data:
-		if is_safe(levels_line):
-			safety_count += 1
+	safety_count = sum(is_safe(levels_line) for levels_line in research_data)
 	return safety_count
 
 
@@ -43,12 +40,8 @@ def safety_count_with_problem_dampener(research_data: list[np.ndarray]) -> int:
 
 def is_safe(levels_line):
 	differences = np.diff(levels_line)  # consecutive differences between levels
-	return all_decreasing_or_increasing(differences, max_gap=3)
-
-
-def all_decreasing_or_increasing(differences, max_gap):
 	is_increasing_or_decreasing = (differences < 0).all() or (differences > 0).all()
-	is_max_gap = (differences <= max_gap).all() and (differences >= -max_gap).all()
+	is_max_gap = (differences <= 3).all() and (differences >= -3).all()
 	return is_increasing_or_decreasing and is_max_gap
 
 

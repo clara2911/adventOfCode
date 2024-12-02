@@ -18,7 +18,8 @@ def read_input(input_path: Path) -> pd.DataFrame:
 		sep="   ",
 		header=None,
 		names=["search_group1", "search_group2"],
-		dtype={"search_group1": int, "search_group2": int}
+		dtype={"search_group1": int, "search_group2": int},
+		engine='python'
 	)
 	return coordinates
 
@@ -35,3 +36,12 @@ def distance_sum(coordinates: pd.DataFrame) -> int:
 	coordinates['search_group2'] = coordinates['search_group2'].sort_values().reset_index(drop=True)
 	coordinates['difference'] = abs(coordinates['search_group2'] - coordinates['search_group1'])
 	return coordinates['difference'].sum()
+
+
+if __name__ == '__main__':
+	distance_sum = get_solution_part1(input_path=Path("../input/day01/input_day01.txt"))
+	print(f"SOLUTION PART 1 // Distance sum: {distance_sum}")
+
+	similarity_score = get_solution_part2(input_path=Path("../input/day01/input_day01.txt"))
+	print(f"SOLUTION PART 2 // similarity score: {similarity_score}")
+
