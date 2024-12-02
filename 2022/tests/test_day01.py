@@ -1,4 +1,4 @@
-from day01 import Day1
+from day02 import Day1
 
 
 class TestDay1:
