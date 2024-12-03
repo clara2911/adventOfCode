@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 
-class TestDay01(unittest.TestCase):
+class TestDay02(unittest.TestCase):
 
 	def test_part1_example_safety_count_matches_puzzle_description(self):
 		safety_count = day02.get_solution_part1(input_path=Path("../input/day02/test_input.txt"))
