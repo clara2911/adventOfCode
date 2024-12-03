@@ -3,7 +3,6 @@ import logging
 import day03
 import re
 
-
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
