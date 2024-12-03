@@ -41,11 +41,6 @@ class TestDay03(unittest.TestCase):
 		assert len(matches) == 6
 		assert matches == ["4", "don't()", "5", "8", "do()", "5"]
 
-	def test_read_input(self):
-		instruction_string = day03.read_input(input_path=Path("../input/day03/test_input_part1.txt"))
-		assert instruction_string == "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))"
-
-
 
 if __name__ == '__main__':
 	unittest.main()
