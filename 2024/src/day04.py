@@ -30,6 +30,7 @@ def get_solution_part2(input_path: Path) -> int:
 	])
 	return n_mascross
 
+
 def read_input(input_path):
 	cw = np.loadtxt(input_path, delimiter=" ", dtype=str)
 	cw = np.array([np.array([*row]) for row in cw])
@@ -61,10 +62,9 @@ def is_mascross(crossword: np.array, i: int, j: int) -> bool:
 	bottom_left = crossword[i + 1, j - 1]
 	bottom_right = crossword[i + 1, j + 1]
 	return (top_left == 'M' and top_right == 'M' and bottom_left == 'S' and bottom_right == 'S') or \
-	(top_left == 'S' and top_right == 'S' and bottom_left == 'M' and bottom_right == 'M') or \
-	(top_left == 'M' and top_right == 'S' and bottom_left == 'M' and bottom_right == 'S') or \
-	(top_left == 'S' and top_right == 'M' and bottom_left == 'S' and bottom_right == 'M')
-
+		(top_left == 'S' and top_right == 'S' and bottom_left == 'M' and bottom_right == 'M') or \
+		(top_left == 'M' and top_right == 'S' and bottom_left == 'M' and bottom_right == 'S') or \
+		(top_left == 'S' and top_right == 'M' and bottom_left == 'S' and bottom_right == 'M')
 
 
 if __name__ == '__main__':
