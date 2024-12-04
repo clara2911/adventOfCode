@@ -19,27 +19,28 @@ def get_solution_part1(input_path: Path) -> int:
 
 def get_solution_part2(input_path: Path) -> int:
 	crossword = read_input(input_path)
-	n_mascross = 0
-	for i, row in enumerate(crossword):
-		if i == 0 or i == len(crossword) - 1:
-			continue
-		for j, char in enumerate(row):
-			if j == 0 or j == len(crossword[i]) - 1:
-				continue
-			if char == 'A':
-				try:
-					top_left = crossword[i-1, j-1]
-					top_right = crossword[i-1, j+1]
-					bottom_left = crossword[i+1, j-1]
-					bottom_right = crossword[i+1, j+1]
-					if is_mascross(top_left, top_right, bottom_left, bottom_right):
-						n_mascross += 1
-				except IndexError:
-					pass
+	n_mascross = sum([
+		sum([
+			int(is_mascross(crossword=crossword, i=i, j=j))
+			if ((char == 'A') and (not side(j, crossword))) else 0
+			for j, char in enumerate(row)
+		])
+		if not side(i, crossword) else 0
+		for i, row in enumerate(crossword)
+	])
 	return n_mascross
 
 
-def is_mascross(top_left: str, top_right: str, bottom_left: str, bottom_right: str) -> bool:
+def side(i: int, ndarray: np.array):
+	""" index is on the of the sides/edges of the ndarray"""
+	return (i == 0) or (i == len(ndarray) - 1)
+
+
+def is_mascross(crossword: np.array, i: int, j: int) -> bool:
+	top_left = crossword[i - 1, j - 1]
+	top_right = crossword[i - 1, j + 1]
+	bottom_left = crossword[i + 1, j - 1]
+	bottom_right = crossword[i + 1, j + 1]
 	return (top_left == 'M' and top_right == 'M' and bottom_left == 'S' and bottom_right == 'S') or \
 	(top_left == 'S' and top_right == 'S' and bottom_left == 'M' and bottom_right == 'M') or \
 	(top_left == 'M' and top_right == 'S' and bottom_left == 'M' and bottom_right == 'S') or \

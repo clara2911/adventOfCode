@@ -51,35 +51,9 @@ def test_diagonal_occurrences_backwards():
     assert n_diag_right_left == 4
 
 
-# def test_all_diagonals():
-#     crossword = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-#     all_diagonals = day04.all_diagonals(crossword)
-#     expected_output = [np.array(x) for x in [[7], [4, 8], [1, 5, 9], [2, 6], [3]]]
-#     assert [x == y for x, y in zip(all_diagonals, expected_output)] == [True]*5
-
-
 def test_regex_returns_occurrences_of_xmas():
     text = "XMASBLABLABLAXAMSBLASAMXXMAS"
     pattern = "XMAS"
     matches = re.findall(pattern, text)
     assert len(matches) == 2
     assert matches == ["XMAS", "XMAS"]
-
-
-def test_which_diagonal_is_which():
-    crossword = day04.read_input(Path("../input/day04/test_input.txt"))
-    diagonals = [
-        day04.diagonal(crossword),
-        day04.diagonal(crossword[:, ::-1]),
-        day04.diagonal(crossword[::-1, ::-1]),
-        day04.diagonal(crossword[::-1, :]),
-
-
-    ]
-    assert (diagonals[0][2] == np.array(['S', 'A', 'M'])).all()  # \ up down, so starting left bottom
-    assert (diagonals[1][3] == np.array(['S', 'A', 'M', 'M'])).all()  # / up down, so starting right bottom
-    assert (diagonals[2][3] == np.array(['X', 'M', 'M', 'M'])).all()  # \ down up, so starting left top
-    assert (diagonals[3][2] == np.array(['A', 'S', 'M'])).all()  # / down up, so starting left top
-
-
-
