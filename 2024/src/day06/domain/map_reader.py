@@ -14,7 +14,7 @@ class MapReader:
 	def get_walkable_locations(self) -> list[Position]:
 		return self.walkable_locations
 
-	def is_out_of_maze(self, position: Position) -> bool: #TODO can be combined with walkable
+	def is_out_of_maze(self, position: Position) -> bool:
 		return position.row < 0 or position.column < 0 or position.row >= self.map.shape[0] or position.column >= self.map.shape[1]
 
 	def add_obstacle(self, position: Position):
