@@ -3,9 +3,6 @@ import logging
 import day05
 import pytest
 
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger(__name__)
-
 
 @pytest.fixture
 def test_updates():
@@ -70,7 +67,7 @@ def test_is_correctly_ordered(test_updates, test_rules):
     assert (output == expected_output).all()
 
 
-def test_sum_middles(test_updates):
+def test_sum_middles():
     valid_updates = [
         [75, 47, 61, 53, 29],  # 61
         [97, 61, 53, 29, 13],  # 53
@@ -81,7 +78,7 @@ def test_sum_middles(test_updates):
     assert output == expected_output
 
 
-def test_make_page_adhere_to_rules(test_updates, test_rules):
+def test_make_page_adhere_to_rules(test_rules):
     invalid_update = [75, 97, 47, 61, 53]
     output = day05.make_page_adhere_to_rules(page_number=75, update=invalid_update, rules=test_rules)
     expected_output = [97, 75, 47, 61, 53]

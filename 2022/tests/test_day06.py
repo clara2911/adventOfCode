@@ -1,4 +1,4 @@
-from day06 import Day6
+from day06.day06_main import Day6
 
 
 class TestDay6:
