@@ -30,6 +30,3 @@ def test_read_input_hashtags_not_comments():
     assert map.shape == (2, 4)
     assert map[0, 0] == '.'
     assert map[1, 3] == '#'
-
-
-
